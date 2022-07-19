@@ -549,3 +549,90 @@ Hope is a good thing, maybe the best of things, and no good thing ever dies.
 > normal模式与visual模式通用
 + `gc`，单行注释
 + `gC`，多行注释
+
+# vim-day15
+## 今日目标
+> 掌握窗口的管理
+
+## 操作
+
+### 1. vim的窗口管理
+#### 新建窗口
++ `Ctrl + w + v`，在当前窗口的左边或右边新建窗口
++ `Ctrl + w + s`，在当前窗口的上边或下边新建窗口
+
+#### 窗口切换
++ `Ctrl + w + h/j/k/l`，切换到上 / 下 / 左 / 右方向的窗口
++ `Ctrl + w + v`，打开多个窗口时，在不同的窗口间相互切换，如只有两个窗口时，则在两个窗口间互相切换
+
+#### 关闭窗口
++ `Ctrl + W + c`，关闭当前窗口
++ `Ctrl + w + o`，只保留当前窗口，关闭其他所有的窗口
+
+### 2. vscode的自定义快捷键
+#### 新建窗口
++ `win + \`，在当前窗口的下边新建窗口
++ `win + Ctrl + \`，在当前窗口的上边新建窗口
++ `Ctrl + \`，在当前窗口的右边新建窗口
+
+#### 关闭窗口 
++ `win + w`，关闭当前窗口
++ `win + k + w`，保留当前窗口，关闭其他所有窗口
+
+#### 窗口切换
++ `shift + 方向键`
++ 没改键的话，使用`shift + Ctrl + j/k/h/l`
+
+# vim-day16
+## 今日目标
+> 如何删除一个函数
+
+## 操作
++ `%`，匹配括号 `()` / `[]` / `{}` 对象
++ vim-indent-object
+  + `vii`，选择函数内文本对象范围内的内容
+  + `vai`，选择函数对象不包括结尾符号的内容
+  + `vaI`，选择整个函数内容
++ `dap / dip`，删除整个函数体内至空白行前部分的代码
++ `daI`，删除整个函数体
++ `V + $ + % + d`，`V` 选中整行后，用 `$ + %` 匹配括号，直至匹配到想要删除的内容，按 `d` 删除
+
+## 映射配置
+```json
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["a", "i"],
+      "after": ["a", "I"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<Leader>", "d", "f"],
+      "after": ["V", "$", "%", "d"]
+    }
+  ],
+  "vim.operatorPendingModeKeyBindings": [
+    {
+      "before": ["a", "i"],
+      "after": ["a", "I"]
+    }
+  ]
+```
+
+## 练习
+```js
+
+function setName(name = "test") {
+  console.log(name);
+}
+
+function getName(name="test", age = 19) {
+  const a = "1";
+  const b = "2";
+  const arr = ["1", "2", "3"];
+
+  if (a === b) {
+    console.log("test");
+  }
+}
+```
