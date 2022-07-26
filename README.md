@@ -1,3 +1,4 @@
+# vim篇
 # vim-day01
 ## 今日目标
 > 熟悉vim的基本操作
@@ -636,3 +637,227 @@ function getName(name="test", age = 19) {
   }
 }
 ```
+
+# vim-day17
+## 今日目标
+> 掌握宏，宏可以录制一系列动作。
+
+## 操作
+### 1. 基础知识
++ `qa`，开始录制，`a` 是寄存器的名字，也可以用别的
++ `q`，结束录制
++ `:reg a`，查看录制好的宏
++ `@a`，使用，`a` 是寄存器的名字
++ `@@`，对于某个宏需要连续调用的话，这个命令十分有用
++ `数字 + @ + 寄存器`，重复执行
+  + `qa0f. + enter + r)w~jq`
+    + `qa` 启动录制，`a` 是寄存器的名字
+    + `0` 回到行首
+    + `f.+ 回车` 匹配 `.`
+    + `r)` 将匹配到的 `.` 替换成 `)`
+    + `w~` 跳到下一个单词首字母，并将字母小写转换成大写
+    + `j` 换行
+    + `q` 停止录制。
+
+### 2. 扩展知识
++ 安全机制，报错就停
++ `qA`，追加，`A`是之前寄存器的大写
++ 修改一个已知的宏
+  + 就是修改寄存器里面的内容
+  + 取出来
+    + `"ap`，复制出来
+    + `:put a`
+  + 修改
+    + `ayw / ayy`，粘贴进去
+
+### 3. 技巧
++ 先规范好光标的位置
++ 移动的时候使用相对位置
+  + 比如 `w / e / textObj / f / t` 都可以
+  + 但是 `j / k / h / l` 就是绝对位置
+  
+## 练习
+```txt
+1) OperatorPendingModeKeyBindings
+2) Two
+3. three
+4. formatDocument
+10. ten
+```
+
+# vim-day18
+## 今日目标
+> vim调用vscode的命令
+
+## 操作
+### 1. command字段
+> 配置修改
+```json
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // 格式化文档
+    {
+      "before": ["<Leader>", "f", "d"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    // 重命名文档
+    {
+      "before": ["<Leader>", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    // 折叠代码
+    {
+      "before": ["<Leader>", "["],
+      "commands": [
+        {
+          "command": "editor.fold"
+        }
+      ]
+    },
+    {
+      "before": ["<Leader>", "]"],
+      "commands": [
+        {
+          "command": "editor.unfold"
+        },
+        {
+          "command": "vim.remap",
+          "args": {
+            "after": ["$", "%"]
+          }
+        }
+      ]
+    }
+  ]
+```
+### 2. 功能点
++ 格式化文档
+  + `shift + alt + f`
+  + `<Leader> + f + d`
+
++ 重命名
+  + `f2`
+  + `<Leader> + r + n`
+
++ 折叠代码
+  + `alt + cmd + [`
+  + `<Leader> + [`  
+
+# vscode篇
+# vim-day19
+## 今日目标
+> 操作文件
+
+## 操作
+### 1. 切到`ﬁles explorer`区域 和 切到`editor`区域
++ `Ctrl+;`，切换到资源管理器,光标在文件编辑区可切换到资源管理器，光标在终端区也可切换到资源
+
+管理器，光标在资源管理器可切换到文件编辑区。
+在`keybindings.json`中配置键
+```json
+    {
+        "key": "ctrl+;",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+```
+### 2. 在`ﬁles explorer` (资源管理器)移动光标、折叠/展开
+  + `j`向下移动
+  + `k`向上移动
+  + `h`跳到当前文件的根目录位置
+  + `l`展开文件夹或打开文件
+  + `hh/hl` 折叠当前文件夹 
+### 3. 创建文件和创建文件夹
+#### 在`ﬁles explorer` 资源管理器中：
++ 创建文件，在资源管理器中文件所在位置按`a` 创建文件
+在`keybindings.json`中配置键
+```json
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+```
++ `shift+a`创建文件夹，在资源管理器中想要创建的文件夹的位置按`shift+a` 创建文件夹
+在`keybindings.json`中配置键
+```json
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+```
+#### 在`editor 编辑区`：
++ `<Leader>+n+f`，创建文件，
++ `<Leader>+n+d`, 创建文件夹，
+在编辑区突然想在当前文件在创建文件夹或者文件时，可配置vim快捷键
+```json
+   "vim.normalModeKeyBindingsNonRecursive": [ 
+      {
+         "before": ["<Leader>", "n", "d"],
+         "commands": ["explorer.newFolder"]
+      },
+      {
+        "before": ["<Leader>", "n", "f"],
+        "commands": ["explorer.newFile"]
+      },
+   ]
+```
++ `ctrl+n`创建文件 ，vscode自带的
++ 使⽤插件 ﬁle Utils
+### 4. 重命名和删除文件
++ `r`，重命名文件
++ `d`，删除文件
+在`keybindings.json`中配置键
+```json
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    }
+```
+
+# vim-day20
+## 今日目标
+> 操作多个vscode窗口
+
+## 操作
+
++ 打开新的vscode窗口
+  + mac: `shift + command + n`
+  + win: `shift + Ctrl + n`
+
++ 选择工作区，`Ctrl + r`
+
++ 多个窗口切换
+  + mac: *command + `*
+  + win: `Alt + Tab`
+
++ 关闭vscode窗口
+  + mac: `shift + command + w`
+  + win: `shift + Ctrl + w`
+
+# vim-day21
+
+## 今日目标
+> 掌握搜索
+
+## 操作
++ 全局搜索
+  + `Ctrl + shift + f`，打开 `vscode` 的全局搜索栏
+  + `Ctrl + up/down`，选中搜索栏的输入框
+  + `Ctrl + shift + j`，查看搜索内容
++ 查找单一工作空间，
+  + `Ctrl + t`
++ 查找单一文件
+  + `Ctrl + shift + o` / `Ctrl + p + @`，搜索框出现`@`，搜索变量
+  + `Ctrl + p + :`，按照类别分组
++ `Ctrl + shift + p`， 查找命令
++ `Ctrl + p`，快速定位文件
++ 切换文件，
+  + `vim环境` 下，两个文件的快速跳转，`Ctrl + i/o`
+  + `vscode环境` 下，`Ctrl + Tab`
