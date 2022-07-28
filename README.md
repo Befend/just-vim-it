@@ -861,3 +861,75 @@ function getName(name="test", age = 19) {
 + 切换文件，
   + `vim环境` 下，两个文件的快速跳转，`Ctrl + i/o`
   + `vscode环境` 下，`Ctrl + Tab`
+
+# vim-day22
+
+## 今日目标
+> 编码
+
+## 操作
++ 显示可用的代码操作
+  + `mac`环境下，`command + .`
++ 触发参数建议
+  + `mac`环境下，`shift + command + space`
+  + `win`环境下，`shift + space`（通过修改键盘快捷键）
++ 触发建议
+  + `mac`环境下，`command + i`
+  + `win`环境下，`Alt + i`
++ 移动行
+  + `mac`环境下，`opt + up/down`
+  + `win`环境下，`Alt + Ctrl + j/k`
++ 增加行
+  + `mac`环境下
+    + `command + enter`，在当前光标的下方增加一行
+    + `command + shift + enter`，在当前光标的上方增加一行
++ 删除前面的单词
+  + `mac`环境下
+    + `opt + delete`，删除前面的整个单词
+    + `opt + Ctrl + delete`，按照单词去删除
+  + `win`环境下
+    + `opt + delete`，删除前面的整个单词
+    + `opt + Ctrl + delete`，按照单词去删除
++ `F8`，基于整个工作区， 跳转到错误处
++ 选择所有出现的当前单词
+  + `mac`环境下，`command + F2`
+  + `win`环境下，`Ctrl + F2`
+  
+## 练习
+```js
+function getName(name, age) {
+  this.name = name
+  this.age = age
+}
+
+getName()
+```
+
+# vim-day23
+
+## 今日目标
+> 发现使用快捷键的场景
+
+## 操作
++ 资源管理器
+  + `mac`环境下，`command + b`，显示/隐藏资源管理器
+  + `win`环境下，`Alt + b`，显示资源管理器
++ 使用`live sever`起服务
+  + `mac`环境下，`command + l` + `command + o` 启动服务；`command + l` + `command + c` 关闭服务
+  + `win`环境下，`Alt + l` + `Alt + o` 启动服务；`Alt + l` + `Alt + c` 关闭服务
++ 预览 `md`
+  + `mac`环境下
+    + `command + k + v`，打开侧边预览
+    + `command + shift + v`，打开预览
+  + `win`环境下
+    + `alt + m`，打开侧边预览(通过改键配置)
+    + `Ctrl + shift + v`，打开预览
++ 显示扩展
+  + `mac`环境下，`command + shift + x`
+  + `win`环境下，`Alt + shift + x`
++ 显示真实文件详情
+  + `mac`环境下，`command + k + r`
++ 复制活跃文件路径
+  + `mac`环境下，`command + k + p`
+  + `win`环境下，`Alt + k + p`
+
