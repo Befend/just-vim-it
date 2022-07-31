@@ -933,3 +933,79 @@ getName()
   + `mac`环境下，`command + k + p`
   + `win`环境下，`Alt + k + p`
 
+# vim-day24
+
+## 今日目标
+> 搞定git
+
+## 操作
+```json
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Leader>", "g", "c", "l"],
+      "commands": ["git.clean"]
+    },
+    {
+      "before": ["<Leader>", "g", "d", "f"],
+      "commands": ["git.openChange"]
+    },
+    {
+      "before": ["<Leader>", "g", "c"],
+      "commands": ["git.commit"]
+    },
+    {
+      "before": ["<Leader>", "g", "s"],
+      "commands": ["git.stage"]
+    },
+    {
+      "before": ["<Leader>", "g", "u"],
+      "commands": ["git.unstage"]
+    },
+    {
+      "before": ["<Leader>", "g", "g"],
+      "commands": ["workbench.view.scm"]
+    }
+  ]
+```
++ `<Leader> + g + g`，显示资源改变面板
++ `<Leader> + g + s`，文件暂存更改
++ `<Leader> + g + c`，显示资源改变面板
++ `<Leader> + g + f`，显示资源改变面板
++ `<Leader> + g + u`，取消文件暂存更改
++ `<Leader> + g + c + l`，清除文件改变
+
+## 扩展
++ `edamagit`插件
+
+# vim-day25
+
+## 今日目标
+> 学习lazygit
+
+## 安装
+> 安装 `lazygit` 后在 `git` 的仓库目录下命令行键入 `lazygit` 即可打开 `lazygit`，也可以在 `~/bash_profile` 中添加别名 `lg`，即添加新一行 `alias lg='lazygit'`；
+> *注意：修改 bash_profile 文件前最好先备份该文件！尤其不知道这是什么东西的朋友！*
+
+## 基本操作
++ `q`，退出 lazygit；
++ `h / l`，在左侧由上至下五个功能区焦点切换，也可以通过数字键 1 ~ 5 来切换对应功能区
++ `j / k`，功能区内单条记录焦点切换；如 commit 记录焦点切换，分支焦点切换等
++ `[ / ]`，功能区内有多个标签页的，可以通过这两个命令左右切换；如分支区的 `Local Branches / Remotes / Tags` 这几个标签页的切换
++ `?`，如同 `Vimium-c` 一样，键入 `?` 会弹出当前功能区的所有可用命令以及其功能描述（相同的一个命令，如 a，在不同的功能区其对应的功能也不一样）
+
+## Git常用操作
++ `add`
+  + 左栏切换到第二栏 `Files` 栏中，如果是对单个文件进行暂存可以聚焦到对应文件后按下 `space` 键即可；而如果是要对所有文暂存则可以按 `a`；而如果当前文件或者所有文件都已暂存，这时使用 `space / a` 会变回为未添加到暂存的状态
++ `commit`
+  + 左栏切换到第二栏 `files` 栏中，按 `c` 会弹出输入框要求填入提交信息，输入后 `enter` 即可提交已经暂存的更改；如果是需要添加详细可以使用 `C`
++ `reset`
+  + 左栏切换到第四栏 `Commits` 栏中，切换聚焦需要回退到的那个提交上，键入 `g`，会有弹框可选择 `reset` 的 `--soft / --mixed / --hard` 参数，`enter` 即可选择
++ `pull`
+  + 在任意位置都可通过 `p` 进行代码拉取，会拉取左栏第三栏中的 `Local Branches` 的分支列表中的带星号的分支的远程分支代码
++ `push`
+  + 在任意位置都可通过 `P` 进行代码推送，会推送代码到左栏第三栏中的 `Local Branches` 的分支列表中的带星号的分支的远程分支中
++ `discard`
+  + 需要撤销更改时，左栏切换到第二栏 `Files` 栏中，聚焦要撤销的文件，键入 `d` 即会弹出提示框提示是否撤销该文件所有更改；如果是要把当前项目中的所有文件的更改一并撤销，则可以键入 `D` 后选择需要撤销的类型
++ `branch`
+  + 在左栏切换到第三栏 `Local Branches` 栏中，键入 `n` 即可基于当前分支创建新分支，键入 `d` 即可删除聚焦的分支
+
