@@ -1187,4 +1187,91 @@ rp | return new Promise()
 ```
 
 ## 扩展
-> 自己配置vim，可以参考原有的[`vscode-vim的配置`](https://github.com/VSpaceCode/VSpaceCode/tree/vscode-vim) 
+> 自己配置vim，可以参考原有的[`vscode-vim的配置`](https://github.com/VSpaceCode/VSpaceCode/tree/vscode-vim)
+
+# vim-day29
+## 今日目标
+> 学习vscode的终端
+
+## 操作
++ 打开终端
+  + mac系统下，`ctrl + ,`
+  + windows系统下，`Ctrl + shift + ,`
+  + `workbench.action.terminal.toggleTerminal`
++ 清空
+  + mac系统下，`cmd + k`
+  + windows系统下，`shift + Alt + k`
+  + `workbench.action.terminal.clear`
++ 分屏
+  + mac系统下，`cmd + \`
+  + windows系统下，`Ctrl + shift + 5`
++ 分屏切换
+  + mac系统下
+    + `cmd + [`，向前切换
+    + `cmd + ]`，向后切换
+  + windows系统下
+    + `Ctrl + [`，向前切换
+    + `Ctrl + ]`，向后切换
+  + `workbench.action.terminal.focusNextPane`
+  + `workbench.action.terminal.focusPreviousPane`
++ 关闭
+  + mac系统下，`shift + alt + q`
+  + windows系统下，`Ctrl + shift + 4`
+  + `workbench.action.terminal.kill`
++ 新建
+  + mac系统下，`shift + alt + n`
+  + windows系统下，*Ctrl + shift + `*
+  + `workbench.action.terminal.new`
++ 窗口切换
+  + mac系统下
+    + `shift + cmd + [`，向前切换
+    + `shift + cmd + ]`，向后切换
+  + windows系统下
+    + `Ctrl + shift + [`，向前切换
+    + `Ctrl + shift + ]`，向后切换
+  + `workbench.action.terminal.focusPrevious`
+  + `workbench.action.terminal.focusNext`
++ 直接打开系统终端
+  + mac系统下，`shift + cmd + c`
+  + windows系统下，`Ctrl + shift + c`
+
+
+# vim-day30
+## 今日目标
+> 学习vscode的debugger
+
+## 操作
++ `fn + 5`，debugger
++ `shift + cmd + 0`，重启debugger
++ 打断点
+  + mac系统下，`shift + cmd + 9`
+  + windows系统下，`fn + 9`
+  + `editor.debug.action.toggleInlineBreakpoint`
++ step over
+  + mac系统下，`cmd + '`
+  + windows系统下，`shift + '`
+  + `workbench.action.debug.stepOver`
++ step into
+  + mac系统下，`shift + cmd + '`
+  + windows系统下，`shift + ctrl + '`
+  + `workbench.action.debug.stepInto`
++ step out
+  + `f5`
+
+## 扩展
+> 使用VSpacecode插件
+
+# Chrome篇
+# vim-day31 
+
+## 今日目标
+> 学习Vimium C的插件
+
+## 基本操作
++ `?`，帮助
++ `j / k / u/ d`，移动
++ `gg`，页面头部
++ `G`，页面尾部
++ `f / F`，选择
++ `J / K`，标签切换
++ `H / L`，历史记录
