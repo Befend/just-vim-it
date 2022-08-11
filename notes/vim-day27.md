@@ -14,7 +14,7 @@
 
 ## vscode自带重构指令
 + `Ctrl + shift + r`，只会出现和重构相关的提示
-+ `ctrl + .`， 出现所有提示
++ `alt + t`， 触发参数提示
 + [vscode自带的重构文档](https://code.visualstudio.com/docs/typescript/typescript-refactoring)
 + `Extract Method`，提炼方法
 + `Extract Variable`，提炼变量

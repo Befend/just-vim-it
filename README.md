@@ -1053,7 +1053,7 @@ rp | return new Promise()
 
 ## vscode自带重构指令
 + `Ctrl + shift + r`，只会出现和重构相关的提示
-+ `ctrl + .`， 出现所有提示
++ `alt + t`， 触发参数提示
 + [vscode自带的重构文档](https://code.visualstudio.com/docs/typescript/typescript-refactoring)
 + `Extract Method`，提炼方法
 + `Extract Variable`，提炼变量
@@ -1320,3 +1320,38 @@ rp | return new Promise()
 + 修改默认搜索引擎
 + 在chrome:///页面上运行
   + 在chrome:///flags页面，修改extensions-on-chrome-urls为enabled
+
+# vim-day34
+
+## 今日目标
+> 学习chrome的标签
+
+## 基本操作
++ `g0` 或 `gH`，切换到左起指定位置的标签页
++ `gS` 或 `gL`，切换到右起指定位置的标签页
++ `t`，打开新的标签页，可以自定义打开的页面
++ `yt`，复制当前标签页
++ `x`，关闭标签页
++ `X`，恢复最近关闭的
++ `W`，移动当前标签页到下一个窗口
++ `^` 或 `g[`，切换到最近访问的标签页
++ `<<`，向左移动标签页
++ `>>`，向右移动标签页
++ `alt + p`，固定/取消固定标签
+
+# vim-day35
+
+## 今日目标
+> 学习chrome的一些应用场景
+
+## 场景
++ 1. 当页面过长时，我们需要在某处需要记忆时，用 `mm` 进行标记，当我们在该页面任意一处时，可以用 *`m* 回滚到标记处
++ 2. 当我们在访问一个网页时，
+  + `gu` 可以访问该网址的上一层
+  + `gU` 可以访问该网站的首页
+  + 当我们想回去时，可以用 `H` 查看历史记录
++ `i` 可以暂停 `Vimium C` 插件的使用，按 `esc` 可以继续使用
++ `<a-f>`，连续点击网页中的链接和按钮
++ `f2`
+  + 从当前文本框移走键盘焦点，更推荐 `esc`
+  + 也可以从当前文本恢复键盘焦点
