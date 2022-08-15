@@ -1355,3 +1355,56 @@ rp | return new Promise()
 + `f2`
   + 从当前文本框移走键盘焦点，更推荐 `esc`
   + 也可以从当前文本恢复键盘焦点
+
+# vim-day36
+
+## 今日目标
+> 学习chrome的devTools高频操作
+
+## 操作
++ 打开 `DevTools`
+  + 在 `mac` 系统下，`command + Option + i`
+  + 在 `windows` 系统下，`Ctrl + shift + i`
++ 打开 `DevTools` 的 `Console` 面板
+  + 在 `mac` 系统下，`command + Option + j`
++ 打开 `DevTools` 的 `Elements` 面板
+  + 在 `mac` 系统下，`command + Option + j`
++ 打开 `DevTools`之后
+  + 切换到 `console` 面板
+    + 在 `mac` 系统下，*Ctrl + `*
+  + 清空 `console` 面板
+    + 在 `mac` 系统下，`command + k
+  + 搜索文件，`Ctrl + p`
+  + 搜索命令
+    + 在 `mac` 系统下，`command + shift + p`
+    + 在 `windows` 系统下，`Ctrl + shift + p`
+  + 切换面板
+    + 在 `mac` 系统下，`command + [ / ]`
+    + 在 `windows` 系统下，`Ctrl + [ / ]`
+  + 在 `sources` 面板中显示 / 隐藏底部面板，`esc`
+
+## 扩展
+> 可以采用vscode的快捷键方式
+
+# vim-day37
+
+## 今日目标
+> 学习chrome的debugger
+
+## 操作
++ 打断点
+  + 在 `mac` 系统下，`command + b` 或者 `command + shift + b`
+  + 在 `Windows` 系统下，`Ctrl + shift + b`
++ `f10`，Step over
+  + 在 `mac` 系统下，`command + '`
++ `f11`，Step into
+  + 在 `mac` 系统下，`command + ;`
++ `f5`，停止当前的断点
+  + 在 `mac` 系统下，`command + \`
++ Deactivate breakpoint
+  + 在 `mac` 系统下，`command + f8`
++ 把选中的代码打印出来
+  + 在 `mac` 系统下，`shift + command + e`
++ 跳转到函数
+  + 在 `mac` 系统下，`shift + command + o`
++ `Ctrl + g`，跳转到指定行m
