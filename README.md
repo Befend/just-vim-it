@@ -1407,4 +1407,4 @@ rp | return new Promise()
   + 在 `mac` 系统下，`shift + command + e`
 + 跳转到函数
   + 在 `mac` 系统下，`shift + command + o`
-+ `Ctrl + g`，跳转到指定行m
++ `Ctrl + g`，跳转到指定行
